@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты — AmiClo</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div th:replace="layout :: layout">
+    <div th:fragment="content">
+        <h1>Свяжитесь с нами</h1>
+
+        <div th:if="${param.success}">
+            <p style="color: green;">Спасибо! Ваша заявка отправлена.</p>
+        </div>
+
+        <form th:action="@{/send-request}" th:object="${request}" method="post">
+            <label for="name">Имя:</label><br>
+            <input type="text" id="name" th:field="*{name}" required><br><br>
+
+            <label for="phone">Телефон:</label><br>
+            <input type="text" id="phone" th:field="*{phone}" required><br><br>
+
+            <label for="message">Сообщение:</label><br>
+            <textarea id="message" th:field="*{message}" rows="5" required></textarea><br><br>
+
+            <button type="submit">Отправить заявку</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
