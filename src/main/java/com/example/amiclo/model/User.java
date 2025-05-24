@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "users") // avoid conflict with PostgreSQL system user table
+@Table(name = "users")
 public class User {
 
     @Id
@@ -28,7 +28,7 @@ public class User {
         this.roles = roles;
     }
 
-    // геттеры и сеттеры
+
     public Long getId() { return id; }
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
