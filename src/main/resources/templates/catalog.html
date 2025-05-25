@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог — AmiClo</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div th:replace="layout :: layout">
+    <div th:fragment="content">
+        <h2>Каталог продукции</h2>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5em;">
+            <div style="width: 200px; border: 1px solid #ccc; border-radius: 8px; padding: 1em;">
+                <img src="/img/dress1.jpg" alt="Платье" style="width: 100%; border-radius: 4px;">
+                <h4>Платье 001</h4>
+                <p>Лёгкое летнее платье</p>
+            </div>
+
+            <div style="width: 200px; border: 1px solid #ccc; border-radius: 8px; padding: 1em;">
+                <img src="/img/blouse1.jpg" alt="Блузка" style="width: 100%; border-radius: 4px;">
+                <h4>Блузка 002</h4>
+                <p>Базовая офисная блузка</p>
+            </div>
+
+            <!-- Можно добавить ещё карточки -->
+        </div>
+    </div>
+</div>
+</body>
+</html>

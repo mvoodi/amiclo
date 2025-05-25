@@ -29,4 +29,15 @@ public class RequestServiceImpl implements RequestService {
     public List<Request> getAllRequests() {
         return requestRepository.findAll();
     }
+
+    @Override
+    public Request getById(Long id) {
+        return requestRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Заявка не найдена"));
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        requestRepository.deleteById(id);
+    }
+
 }

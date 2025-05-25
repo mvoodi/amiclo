@@ -6,4 +6,8 @@ import java.util.List;
 public interface RequestService {
     void saveRequest(Request request);
     List<Request> getAllRequests();
+
+    Request getById(Long id);
+    void deleteById(Long id);
+
 }

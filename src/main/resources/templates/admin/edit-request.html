@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать заявку</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div th:replace="layout :: layout">
+    <div th:fragment="content">
+        <h2>Редактировать заявку</h2>
+
+        <form th:action="@{/admin/requests/edit}" th:object="${request}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+
+            <label>Имя:</label>
+            <input type="text" th:field="*{name}"/><br><br>
+
+            <label>Телефон:</label>
+            <input type="text" th:field="*{phone}"/><br><br>
+
+            <label>Сообщение:</label>
+            <textarea th:field="*{message}"></textarea><br><br>
+
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

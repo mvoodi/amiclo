@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Заявки — Админка AmiClo</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 <div th:replace="layout :: layout">
@@ -27,9 +27,21 @@
                 <td th:text="${r.phone}">Телефон</td>
                 <td th:text="${r.message}">Сообщение</td>
                 <td th:text="${#temporals.format(r.createdAt, 'dd.MM.yyyy HH:mm')}">Дата</td>
+
             </tr>
             </tbody>
         </table>
+
+        <td>
+            <form th:action="@{/admin/requests/delete/{id}(id=${r.id})}" method="post" style="display:inline">
+                <button type="submit">Удалить</button>
+            </form>
+
+            <form th:action="@{/admin/requests/edit/{id}(id=${r.id})}" method="post" style="display:inline">
+                <button type="submit">Редактировать</button>
+            </form>
+        </td>
+
     </div>
 </div>
 </body>

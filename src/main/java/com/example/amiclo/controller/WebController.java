@@ -38,4 +38,11 @@ public class WebController {
     public Request request() {
         return new Request();
     }
+
+    @GetMapping("/catalog")
+    public String catalog(Model model) {
+        model.addAttribute("pageTitle", "Каталог — AmiClo");
+        return "catalog";
+    }
+
 }

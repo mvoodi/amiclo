@@ -32,4 +32,24 @@ public class RequestController {
         return new Request();
     }
 
+    @GetMapping("/admin/requests/edit/{id}")
+    public String editRequestForm(@PathVariable Long id, Model model) {
+        Request request = requestService.getById(id);
+        model.addAttribute("request", request);
+        return "admin/edit-request";
+    }
+
+    @PostMapping("/admin/requests/edit")
+    public String updateRequest(@ModelAttribute("request") Request request) {
+        requestService.saveRequest(request);
+        return "redirect:/admin/requests";
+    }
+
+    @PostMapping("/admin/requests/delete/{id}")
+    public String deleteRequest(@PathVariable Long id) {
+        requestService.deleteById(id);
+        return "redirect:/admin/requests";
+    }
+
+
 }
