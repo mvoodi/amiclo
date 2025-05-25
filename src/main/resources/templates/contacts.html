@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Свяжитесь с AmiClo — оптовое производство женской одежды в Бишкеке. Оставьте заявку или задайте вопрос.">
+    <meta name="keywords" content="AmiClo, контакты, заявка, женская одежда, Бишкек">
+    <meta name="author" content="AmiClo">
     <title>Контакты — AmiClo</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contacts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-<div th:replace="layout :: layout">
-    <div th:fragment="content">
-        <h1>Свяжитесь с нами</h1>
+<body class="contact-body">
+<div th:replace="~{layout :: layout}">
+    <div th:fragment="content" class="contact-wrapper">
+        <div class="contact-card">
+            <h1 class="contact-title">Свяжитесь с нами с теплом!</h1>
 
-        <div th:if="${param.success}">
-            <p style="color: green;">Спасибо! Ваша заявка отправлена.</p>
+            <div th:if="${param.success}" class="success-message">
+                <p>Спасибо! Ваша заявка отправлена.</p>
+            </div>
+
+            <form th:action="@{/send-request}" th:object="${request}" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Имя:</label>
+                    <input type="text" id="name" th:field="*{name}" required placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Телефон:</label>
+                    <input type="text" id="phone" th:field="*{phone}" required placeholder="Введите номер телефона">
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Сообщение:</label>
+                    <textarea id="message" th:field="*{message}" rows="5" required placeholder="Напишите ваше сообщение"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Отправить заявку</button>
+            </form>
         </div>
-
-        <form th:action="@{/send-request}" th:object="${request}" method="post">
-            <label for="name">Имя:</label><br>
-            <input type="text" id="name" th:field="*{name}" required><br><br>
-
-            <label for="phone">Телефон:</label><br>
-            <input type="text" id="phone" th:field="*{phone}" required><br><br>
-
-            <label for="message">Сообщение:</label><br>
-            <textarea id="message" th:field="*{message}" rows="5" required></textarea><br><br>
-
-            <button type="submit">Отправить заявку</button>
-        </form>
     </div>
 </div>
 </body>
