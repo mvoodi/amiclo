@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AmiClo — оптовое производство женской одежды в Бишкеке. Узнайте больше о нашей компании и услугах.">
+    <meta name="keywords" content="AmiClo, женская одежда, оптовое производство, Бишкек">
+    <meta name="author" content="AmiClo">
     <title>О нас — AmiClo</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div th:replace="layout :: layout">
-    <div th:fragment="content">
-        <h2>О нас</h2>
-        <p>AmiClo — оптовое производство женской одежды в Бишкеке.</p>
-    </div>
+<div th:replace="~{layout :: layout}">
+    <section th:fragment="content">
+        <header>
+            <h1>О компании</h1>
+        </header>
+        <main>
+            <p>AmiClo — ведущий производитель женской одежды оптом в Бишкеке, Кыргызстан. Мы специализируемся на создании качественной и стильной одежды для современных женщин.</p>
+        </main>
+    </section>
 </div>
 </body>
 </html>
