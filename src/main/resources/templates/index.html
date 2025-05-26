@@ -1,16 +1,78 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная — AmiClo</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
-<div th:replace="layout :: layout">
+<div th:replace="~{layout :: layout}">
     <div th:fragment="content">
-        <h1>Добро пожаловать в AmiClo</h1>
-        <p>Швейное производство полного цикла — от идеи до упаковки.</p>
+
+        <header class="header">
+            <nav class="container nav">
+                <h1 class="logo">AmiClo</h1>
+                <ul class="nav-links">
+                    <li><a th:href="@{/}" class="nav-link active">Главная</a></li>
+                    <li><a th:href="@{/about}" class="nav-link">О компании</a></li>
+                    <li><a th:href="@{/services}" class="nav-link">Услуги</a></li>
+                    <li><a th:href="@{/catalog}" class="nav-link">Каталог</a></li>
+                    <li><a th:href="@{/contacts}" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="banner">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="https://via.placeholder.com/1200x400?text=New+Dress+Collection" alt="Новая коллекция платьев">
+                        <div class="slide-text">Новая коллекция платьев!</div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1200x400?text=Custom+Branding" alt="Индивидуальный пошив">
+                        <div class="slide-text">Индивидуальный пошив для брендов!</div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1200x400?text=Wholesale+Discounts" alt="Оптовые скидки">
+                        <div class="slide-text">Оптовые скидки от 30 000 руб!</div>
+                    </div>
+                </div>
+                <button class="prev">←</button>
+                <button class="next">→</button>
+            </div>
+        </section>
+
+        <section class="home container">
+            <h2 class="section-title">AmiClo - Стиль и качество из Бишкека</h2>
+            <p class="description">
+                AmiClo – швейное производство в Бишкеке, специализирующееся на создании стильной одежды для маркетплейсов и брендов. Мы обеспечиваем полный цикл производства – от разработки лекал до готовых изделий, гарантируя высокое качество и индивидуальный подход.
+            </p>
+            <div class="media-grid">
+                <div class="media-item">
+
+                    <img src="/static/images/founders1.jpg" alt="Производственный процесс" class="media-img">
+
+                    <p class="media-caption">Основатели </p>
+                </div>
+                <div class="media-item">
+                    <video controls class="media-video">
+                        <source src="https://via.placeholder.com/600x400?text=Production+Video" type="video/mp4">
+                        Ваш браузер не поддерживает воспроизведение видео.
+                    </video>
+                    <p class="media-caption">Процесс пошива одежды</p>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="footer">
+            <p>© 2025 AmiClo. Все права защищены.</p>
+        </footer>
     </div>
 </div>
+
 </body>
 </html>
+```

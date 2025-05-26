@@ -1,58 +1,56 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Услуги AmiClo — разработка лекал, пошив стандартных и плюс-сайз изделий, упаковка и маркировка.">
-        <meta name="keywords" content="AmiClo, услуги, пошив одежды, разработка лекал, Бишкек">
-        <meta name="author" content="AmiClo">
-        <title>Услуги — AmiClo</title>
-
-        <link rel="stylesheet" href="/static/css/style.css">
-        <link rel="stylesheet" href="/static/css/services.css">
-        <link href="https://fonts.googl/staticeapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    </head>
-    <body class="services-body">
-        <div th:replace="~{layout :: layout}">
-            <div th:fragment="content" class="services-container">
-                <nav class="nav-menu">
-                    <a href="#">Главная</a>
-                    <a href="#">О нас</a>
-                    <a href="#">Услуги</a>
-                    <a href="#">Продукты</a>
-                    <a href="#">Контакты</a>
-                </nav>
-                <div class="main-content">
-                    <section class="services-section">
-                        <h1 class="section-title">Наши услуги</h1>
-                        <p class="section-subtitle">Мы предлагаем полный цикл производства женской одежды с заботой о каждой детали!</p>
-                        <div class="services-grid">
-                            <div class="service-item">
-                                <img src="/images/pattern-making.jpg" alt="Разработка лекал" class="service-img">
-                                <h3>Разработка лекал</h3>
-                                <p>Создаем точные лекала для идеальной посадки одежды.</p>
-                            </div>
-                            <div class="service-item">
-                                <img src="/images/sewing.jpg" alt="Пошив" class="service-img">
-                                <h3>Пошив стандартных и плюс-сайз изделий</h3>
-                                <p>Качественный пошив для всех размеров с учетом ваших пожеланий.</p>
-                            </div>
-                            <div class="service-item">
-                                <img src="/images/packaging.jpg" alt="Упаковка и маркировка" class="service-img">
-                                <h3>Упаковка и маркировка</h3>
-                                <p>Готовим продукцию к продаже с профессиональной упаковкой.</p>
-                            </div>
-                        </div>
-                    </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Услуги AmiClo — разработка лекал, пошив стандартных и плюс-сайз изделий, упаковка и маркировка.">
+    <meta name="keywords" content="AmiClo, услуги, пошив одежды, разработка лекал, Бишкек">
+    <meta name="author" content="AmiClo">
+    <title>Услуги — AmiClo</title>
+    <link rel="stylesheet" href="/static/css/services.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="services-body">
+<div th:replace="~{layout :: layout}">
+    <div th:fragment="content" class="services-container">
+        <nav class="nav-menu">
+            <a href="#">Главная</a>
+            <a href="#">О нас</a>
+            <a href="#">Услуги</a>
+            <a href="#">Продукты</a>
+            <a href="#">Контакты</a>
+        </nav>
+        <div class="main-content">
+            <section class="services-section">
+                <h1 class="section-title">Наши услуги</h1>
+                <p class="section-subtitle">Мы предлагаем полный цикл производства женской одежды с заботой о каждой детали!</p>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <img src="/images/pattern-making.jpg" alt="Разработка лекал" class="service-img">
+                        <h3>Разработка лекал</h3>
+                        <p>Создаем точные лекала для идеальной посадки одежды.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="/images/sewing.jpg" alt="Пошив" class="service-img">
+                        <h3>Пошив стандартных и плюс-сайз изделий</h3>
+                        <p>Качественный пошив для всех размеров с учетом ваших пожеланий.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="/images/packaging.jpg" alt="Упаковка и маркировка" class="service-img">
+                        <h3>Упаковка и маркировка</h3>
+                        <p>Готовим продукцию к продаже с профессиональной упаковкой.</p>
+                    </div>
                 </div>
-                <aside class="sidebar">
-                    <section class="cta-section">
-                        <h2 class="section-title">Готовы сотрудничать?</h2>
-                        <p>Свяжитесь с нами, чтобы обсудить ваш проект и начать производство!</p>
-                        <a href="/contact" class="cta-button">Написать нам</a>
-                    </section>
-                </aside>
-            </div>
+            </section>
         </div>
-    </body>
+        <aside class="sidebar">
+            <section class="cta-section">
+                <h2 class="section-title">Готовы сотрудничать?</h2>
+                <p>Свяжитесь с нами, чтобы обсудить ваш проект и начать производство!</p>
+                <a href="/contact" class="cta-button">Написать нам</a>
+            </section>
+        </aside>
+    </div>
+</div>
+</body>
 </html>

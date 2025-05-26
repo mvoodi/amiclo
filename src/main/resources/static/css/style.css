@@ -292,8 +292,8 @@ footer {
 @media (max-width: 480px) {
     .login-card {
         padding: 1.5rem;
-        width: 300px; /* Уменьшено для мобильных устройств */
-        height: 300px; /* Сохранение квадратной формы */
+        width: 300px;
+        height: 300px;
     }
 
     .login-title {

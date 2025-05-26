@@ -1,47 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Админка AmiClo — управление заявками на оптовое производство женской одежды.">
+    <meta name="keywords" content="AmiClo, админка, заявки, женская одежда, Бишкек">
+    <meta name="author" content="AmiClo">
     <title>Заявки — Админка AmiClo</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/requests.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-<div th:replace="layout :: layout">
-    <div th:fragment="content">
-        <h1>Список заявок</h1>
-
-        <table border="1" cellpadding="10">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Имя</th>
-                <th>Телефон</th>
-                <th>Сообщение</th>
-                <th>Дата</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="r : ${requests}">
-                <td th:text="${r.id}">1</td>
-                <td th:text="${r.name}">Имя</td>
-                <td th:text="${r.phone}">Телефон</td>
-                <td th:text="${r.message}">Сообщение</td>
-                <td th:text="${#temporals.format(r.createdAt, 'dd.MM.yyyy HH:mm')}">Дата</td>
-
-            </tr>
-            </tbody>
-        </table>
-
-        <td>
-            <form th:action="@{/admin/requests/delete/{id}(id=${r.id})}" method="post" style="display:inline">
-                <button type="submit">Удалить</button>
-            </form>
-
-            <form th:action="@{/admin/requests/edit/{id}(id=${r.id})}" method="post" style="display:inline">
-                <button type="submit">Редактировать</button>
-            </form>
-        </td>
-
+<body class="admin-body">
+<div th:replace="~{layout :: layout}">
+    <div th:fragment="content" class="admin-container">
+        <nav class="nav-menu">
+            <a href="#">Главная</a>
+            <a href="#">Заявки</a>
+            <a href="#">Пользователи</a>
+            <a href="#">Настройки</a>
+            <a href="#">Выход</a>
+        </nav>
+        <div class="main-content">
+            <section class="requests-section">
+                <h1 class="section-title">Список заявок</h1>
+                <p class="section-subtitle" th:text="'Последнее обновление: ' + ${#temporals.format(#dates.createNow(), 'dd.MM.yyyy HH:mm z')}">
+                    Последнее обновление: 25.05.2025 22:01 +06
+                </p>
+                <table class="requests-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Телефон</th>
+                        <th>Сообщение</th>
+                        <th>Дата</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="r : ${requests}">
+                        <td th:text="${r.id}">1</td>
+                        <td th:text="${r.name}">Имя</td>
+                        <td th:text="${r.phone}">Телефон</td>
+                        <td th:text="${r.message}">Сообщение</td>
+                        <td th:text="${#temporals.format(r.createdAt, 'dd.MM.yyyy HH:mm')}">Дата</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
     </div>
 </div>
 </body>
