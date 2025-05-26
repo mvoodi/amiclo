@@ -23,7 +23,6 @@
             </nav>
         </header>
 
-        <!-- Banner/Slider -->
         <section class="banner">
             <div class="slider">
                 <div class="slides">
@@ -45,7 +44,6 @@
             </div>
         </section>
 
-        <!-- Brand Description and Media -->
         <section class="home container">
             <h2 class="section-title">AmiClo - Стиль и качество из Бишкека</h2>
             <p class="description">
@@ -53,8 +51,10 @@
             </p>
             <div class="media-grid">
                 <div class="media-item">
-                    <img src="https://via.placeholder.com/600x400?text=Production+Photo" alt="Производственный процесс" class="media-img">
-                    <p class="media-caption">Наше производство в действии</p>
+
+                    <img src="/static/images/founders1.jpg" alt="Производственный процесс" class="media-img">
+
+                    <p class="media-caption">Основатели </p>
                 </div>
                 <div class="media-item">
                     <video controls class="media-video">
@@ -73,37 +73,6 @@
     </div>
 </div>
 
-<script>
-    // Basic slider JavaScript
-    document.addEventListener('DOMContentLoaded', () => {
-        const slides = document.querySelectorAll('.slide');
-        const prev = document.querySelector('.prev');
-        const next = document.querySelector('.next');
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        prev.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        });
-
-        next.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        });
-
-
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 5000);
-    });
-</script>
 </body>
 </html>
 ```
