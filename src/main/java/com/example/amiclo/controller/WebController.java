@@ -33,7 +33,6 @@ public class WebController {
         return "contacts";
     }
 
-    // Чтобы форма заявки в contacts.html не выбрасывала ошибку
     @ModelAttribute("request")
     public Request request() {
         return new Request();
