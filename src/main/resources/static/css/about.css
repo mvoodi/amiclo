@@ -30,9 +30,19 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+h1{
+    color: #7d5539;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.nav-menu h1:hover{
+    color: #9b6f4d;
+}
+
 .nav-menu a {
     color: #7d5539;
     text-decoration: none;
+    padding-top: 25px;
     font-weight: 500;
     transition: color 0.3s ease;
 }
