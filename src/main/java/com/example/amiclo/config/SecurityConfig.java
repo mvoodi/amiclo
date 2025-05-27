@@ -36,14 +36,16 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/admin/requests", true)
-                        .permitAll()
-                )
+                        .loginPage("/login")           // GET – показывает страницу
+                        .loginProcessingUrl("/login")  // POST – обрабатывает форму
+                        .defaultSuccessUrl("/admin/requests", true)  // куда кидать после логина
+                        .failureUrl("/login?error")    // куда кидать при ошибке
+                        .permitAll())
                 .logout(logout -> logout
+                        .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
-                        .permitAll()
-                );
+                        .permitAll());
+
 
         return http.build();
     }

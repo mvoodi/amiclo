@@ -32,12 +32,6 @@ public class WebController {
         model.addAttribute("pageTitle", "Контакты — AmiClo");
         return "contacts";
     }
-
-    @ModelAttribute("request")
-    public Request request() {
-        return new Request();
-    }
-
     @GetMapping("/catalog")
     public String catalog(Model model) {
         model.addAttribute("pageTitle", "Каталог — AmiClo");

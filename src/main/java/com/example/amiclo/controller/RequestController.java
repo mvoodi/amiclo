@@ -7,49 +7,37 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/admin/requests")
 public class RequestController {
 
-    private final RequestService requestService;
+    private final RequestService service;
+    public RequestController(RequestService service) { this.service = service; }
 
-    public RequestController(RequestService requestService) {
-        this.requestService = requestService;
+    /* СПИСОК ЗАЯВОК */
+    @GetMapping
+    public String viewAll(Model model) {
+        model.addAttribute("requests", service.getAllRequests());
+        return "admin/requests";
     }
 
-    @PostMapping("/send-request")
-    public String submitRequest(@ModelAttribute Request request) {
-        requestService.saveRequest(request);
-        return "redirect:/contacts?success=true";
-    }
-
-    @GetMapping("/admin/requests")
-    public String viewRequests(Model model) {
-        model.addAttribute("requests", requestService.getAllRequests());
-        return "admin/requests"; // будет страница с таблицей заявок
-    }
-
-    @ModelAttribute("request")
-    public Request request() {
-        return new Request();
-    }
-
-    @GetMapping("/admin/requests/edit/{id}")
-    public String editRequestForm(@PathVariable Long id, Model model) {
-        Request request = requestService.getById(id);
-        model.addAttribute("request", request);
+    /* ФОРМА РЕДАКТИРОВАНИЯ */
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Long id, Model model) {
+        model.addAttribute("request", service.getById(id));
         return "admin/edit-request";
     }
 
-    @PostMapping("/admin/requests/edit")
-    public String updateRequest(@ModelAttribute("request") Request request) {
-        requestService.saveRequest(request);
+    /* ОБНОВЛЕНИЕ */
+    @PostMapping("/edit")
+    public String update(@ModelAttribute Request request) {
+        service.saveRequest(request);
         return "redirect:/admin/requests";
     }
 
-    @PostMapping("/admin/requests/delete/{id}")
-    public String deleteRequest(@PathVariable Long id) {
-        requestService.deleteById(id);
+    /* УДАЛЕНИЕ */
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        service.deleteById(id);
         return "redirect:/admin/requests";
     }
-
-
 }
